@@ -5,7 +5,11 @@ namespace App\Controllers;
 class Home extends BaseController
 {
 	public function index()
-	{
-		return view('welcome_message');
+	{	
+		echo view('templates/html_header');
+		echo view('templates/navbar');
+		echo view('templates/body');
+		echo view('templates/footer');
+		// return view('welcome_message');
 	}
 }
