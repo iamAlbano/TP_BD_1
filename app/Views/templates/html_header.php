@@ -7,8 +7,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <style>
-        .tags {
+
+        /*login */
+
+        .form-signin{
+        width: 30%;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%); 
+        }
+
+        .home {
             padding-top: 8em;
+        }
+
+        .user-data{
+            font-size: 10pt;
+            position: absolute;
+            margin-left: 3em;
+            margin-top: -2.5em;
+        }
+
+        .post{
+            
+            margin-top: 1em;
         }
 
         /*FOOTER*/
@@ -24,4 +49,6 @@
     </style>
 
     <title>Projeto BD</title>
+
+    
 </head>
