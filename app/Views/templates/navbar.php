@@ -26,7 +26,7 @@
             <li><a class="dropdown-item" href="#">Configurações</a></li>
             <li><a class="dropdown-item" href="#">Meus posts</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="login">Logout</a></li>
           </ul>
         </div>
       </div>

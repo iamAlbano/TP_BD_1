@@ -25,7 +25,7 @@
       
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
-    <p class="mt-5 mb-3 text-muted">Já possui uma conta? <a href="#">faça Login</a></p>
+    <p class="mt-5 mb-3 text-muted">Já possui uma conta? <a href="login">faça Login</a></p>
   </form>
 </main>
 

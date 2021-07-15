@@ -19,18 +19,18 @@ class Post{
             return $this;
         }
         
-        public function __get($property){
-            if (property_exists($this, $property)){
+    public function __get($property){
+        if (property_exists($this, $property)){
                 return $this->$property;  }
             }
             
             
-            public function __construct($id_user, $date, $title, $text, $category){
-                $this->__set('id_user', $id_user);
-                $this->__set('date', $date);
-                $this->__set('title', $title);
-                $this->__set('text', $text);
-                $this->__set('category', $category);
+    public function __construct($id_user, $date, $title, $text, $category){
+            $this->__set('id_user', $id_user);
+            $this->__set('date', $date);
+            $this->__set('title', $title);
+            $this->__set('text', $text);
+            $this->__set('category', $category);
             }
 
 }

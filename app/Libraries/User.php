@@ -15,11 +15,13 @@ class User{
         if (property_exists($this, $property)){
         $this->$property = $value;  }
     }
+    
 
     public function __get($property){
         if (property_exists($this, $property)){
             return $this->$property;  }
     }
+
     public function __construct($email, $name, $lastname, $username, $pass){
         $this->__set('email', $email);
         $this->__set('name', $name);

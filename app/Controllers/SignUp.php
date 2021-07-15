@@ -6,7 +6,7 @@ use App\Libraries\User;
 
 class SignUp extends BaseController
 {
-    public function new(){
+    public function register(){
         $u = new User('teste@email.com', 'Nome', 'Sobrenome', 'username', 'senha123');
         var_dump($u);
         

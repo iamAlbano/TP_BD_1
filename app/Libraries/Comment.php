@@ -17,15 +17,15 @@ class Post{
             return $this;
         }
         
-        public function __get($property){
-            if (property_exists($this, $property)){
-                return $this->$property;  }
+    public function __get($property){
+        if (property_exists($this, $property)){
+            return $this->$property;  }
             }
             
-            public function __construct($id_user, $id_post, $text){
-                $this->__set('id_user', $id_user);
-                $this->__set('id_post', $id_post);
-                $this->__set('text', $text);
+    public function __construct($id_user, $id_post, $text){
+            $this->__set('id_user', $id_user);
+            $this->__set('id_post', $id_post);
+            $this->__set('text', $text);
                 
             }
 

@@ -31,6 +31,11 @@
             margin-top: -2.5em;
         }
 
+        .user-post{
+            width: 68rem;
+            height: 5rem;
+        }
+
         .post{
             
             margin-top: 1em;

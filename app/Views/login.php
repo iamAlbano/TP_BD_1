@@ -16,8 +16,8 @@
     <div class="checkbox mb-3">
       
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-    <p class="mt-5 mb-3 text-muted">Não possui uma conta? <a href="#">Cadastre-se</a></p>
+    <a class="w-100 btn btn-lg btn-primary" href="Home">Entrar</a>
+    <p class="mt-5 mb-3 text-muted">Não possui uma conta? <a href="signup">Cadastre-se</a></p>
   </form>
 </main>
 
