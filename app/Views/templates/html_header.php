@@ -33,7 +33,12 @@
 
         .user-post{
             width: 68rem;
-            height: 5rem;
+            height: 3rem;
+        
+        }
+
+        .link-post{
+            width: 68rem; 
         }
 
         .post{

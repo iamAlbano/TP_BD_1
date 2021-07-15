@@ -7,9 +7,11 @@
             <strong class="d-block text-gray-dark">Nome e Sobrenome</strong>
             <p class="d-block text-gray-dark">@username</p></div>
           
-          <p class="media-body pb-3 mb-0 big lh-125 border-bottom border-gray post">
+          <p class="media-body pb-3 mb-0 big lh-125 post">
           <input class="user-post" type="text" placeholder="Seu post aqui">
-          
+        
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray post"> 
+         <input class="link-post" type="text" placeholder="Quer compartilhar um vídeo? coloque o link aqui">
         </p>
         </div>
         
