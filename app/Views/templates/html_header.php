@@ -31,6 +31,10 @@
             margin-top: -2.5em;
         }
 
+        .new-post{
+            padding-top: 3rem;
+        }
+
         .user-post{
             width: 68rem;
             height: 3rem;
@@ -58,7 +62,7 @@
 
     </style>
 
-    <title>Projeto BD</title>
+    <title>Projeto</title>
 
     
 </head>

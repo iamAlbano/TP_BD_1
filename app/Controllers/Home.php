@@ -11,8 +11,11 @@ class Home extends BaseController
 		echo view('templates/body');
 		echo view('templates/newPost');
 		echo view('templates/post');
+		echo view('templates/comment');
 		echo view('templates/post');
 		echo view('templates/post');
+		echo view('templates/comment');
+		echo view('templates/comment');
 		echo view('templates/post');
 		echo view('templates/footer');
 		// return view('welcome_message');

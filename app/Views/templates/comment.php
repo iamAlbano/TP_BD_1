@@ -1,4 +1,3 @@
-
 <main role="main" class="container new-post">
       <div class="my-3 p-3 bg-white rounded box-shadow">
         <div class="media text-muted pt-3">
@@ -6,17 +5,12 @@
             <div class="user-data">
             <strong class="d-block text-gray-dark">Nome e Sobrenome</strong>
             <p class="d-block text-gray-dark">@username</p></div>
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray post">
+           
+           Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+         </p>
+        
           
-          <p class="media-body pb-3 mb-0 big lh-125 post">
-          <input class=" form-control user-post" type="text" placeholder="Seu post aqui">
-        
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray post"> 
-         <input class=" form-control link-post" type="text" placeholder="Quer compartilhar um vídeo? coloque o link aqui">
-        </p>
-        </div>
-        
+        </div>  
       </div>
-
     </main>
-
- 
