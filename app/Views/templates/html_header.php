@@ -31,7 +31,7 @@
             margin-top: -2.5em;
         }
 
-        .new-post{
+        .post{
             padding-top: 3rem;
         }
 
@@ -45,7 +45,7 @@
             width: 68rem; 
         }
 
-        .post{
+        .post-text{
             
             margin-top: 1em;
         }
