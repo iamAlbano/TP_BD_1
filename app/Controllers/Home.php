@@ -6,17 +6,40 @@ class Home extends BaseController
 {
 	public function index()
 	{	
+		$userData = [
+			'name' => 'Jão pé de feijão',
+			'username' => 'jao123'
+		];
+
+		$posts = [
+		[
+			'name' => 'Jusé',
+			'username' => 'Zé_da_Roça',
+			'text' => 'test de texto de post',
+			'link' => 'https://www.youtube.com/embed/tgbNymZ7vqY'
+		],
+		[
+			'name' => 'Maria',
+			'username' => 'Maria_da_Roça',
+			'text' => 'test de texto de post 2',
+			'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
+			
+		],
+		[
+			'name' => 'Joana',
+			'username' => 'Joana_da_Roça',
+			'text' => 'test de texto de post 3',
+			'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
+			
+		],
+		];
+
+
 		echo view('templates/html_header');
 		echo view('templates/navbar');
 		echo view('templates/body');
-		echo view('templates/newPost');
-		echo view('templates/post');
-		echo view('templates/comment');
-		echo view('templates/post');
-		echo view('templates/post');
-		echo view('templates/comment');
-		echo view('templates/comment');
-		echo view('templates/post');
+		echo view('templates/newPost', $userData);
+		echo view('templates/post', ['posts' => $posts]);
 		echo view('templates/footer');
 		// return view('welcome_message');
 	}
