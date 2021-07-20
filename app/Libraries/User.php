@@ -9,8 +9,8 @@ class User
   private $email;
   private $first_name;
   private $last_name;
-  private $login;
-  private $password_;
+  private $username;
+  private $pass;
 
   public function __set($property, $value)
   {
