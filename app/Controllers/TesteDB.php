@@ -10,7 +10,7 @@ class TesteDB extends BaseController
   private function getAllUsers()
   {
     $db = DB::connect();
-    $query = $db->query('SELECT * FROM `user_`');
+    $query = $db->query('SELECT * FROM `tb_user`');
 
     $results = array();
     if ($query) {

@@ -9,8 +9,8 @@
           <li class="list-group-item">First Name <?= $result->first_name ?></li>
           <li class="list-group-item">Last Name <?= $result->last_name ?></li>
           <li class="list-group-item">email <?= $result->email ?></li>
-          <li class="list-group-item">Login <?= $result->login ?></li>
-          <li class="list-group-item">Password <?= $result->password_ ?></li>
+          <li class="list-group-item">Login <?= $result->username ?></li>
+          <li class="list-group-item">Password <?= $result->pass ?></li>
         </ul>
       </div>
     </div>
