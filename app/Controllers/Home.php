@@ -4,12 +4,18 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+
 	public function index()
-	{	
-		$userData = [
-			'name' => 'Jão pé de feijão',
-			'username' => 'jao123'
-		];
+	{
+		
+		$this->isntLoggedIn();
+		$this->frontend($posts = $this->posts());
+		
+		
+	}
+
+	public function posts(){
+			
 
 		$posts = [
 		[
@@ -34,13 +40,29 @@ class Home extends BaseController
 		],
 		];
 
+		return $posts;
+	}
 
+	public function frontend($posts){
 		echo view('templates/html_header');
 		echo view('templates/navbar');
 		echo view('templates/body');
-		echo view('templates/newPost', $userData);
+		echo view('templates/newPost');
 		echo view('templates/post', ['posts' => $posts]);
 		echo view('templates/footer');
-		// return view('welcome_message');
 	}
+
+
+	public function logout(){
+		session()->destroy();
+		header("Location: ../Login");
+		die();
+	}
+
+	public function isntLoggedIn(){
+		if(!session()->has('name')){
+		header("Location: /Login");
+		die();  }
+	}
+
 }
