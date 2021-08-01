@@ -40,7 +40,6 @@ class SignUp extends BaseController
 
 		
 
-
 		$data = $db->query("SELECT * FROM tb_user WHERE email = :email: OR username  = :username:", $parameter);
 
 		foreach ($data->getResult() as $row){
@@ -69,10 +68,20 @@ class SignUp extends BaseController
 
 		$db->close();
 
-		header('Location: ../Login/autentication');
-		die();
+		$this->log($parameter['name'], $parameter['username']);
+		
         
     }
+
+
+	public function log($name, $username){
+		session()->set([
+			'name' => $name,
+			'username' => $username]);
+			header("Location: ../Home");
+			die();
+	
+	}
 
 
 }

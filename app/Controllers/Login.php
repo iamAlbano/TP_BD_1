@@ -49,7 +49,7 @@ class Login extends BaseController
 		$data = $db->query("SELECT * FROM tb_user WHERE email = :email: AND pass = :password:", $parameter)->getResultObject();
 		
 		if(empty($data)){
-			print_r("não encontramos nenhum usuário com este e-mail");
+			print_r("E-mail ou senha incorretos");
 			return;
 		} else {
 		 $this->log($data['0']->first_name, $data['0']->username);
