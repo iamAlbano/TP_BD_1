@@ -26,7 +26,7 @@ class TesteDB extends BaseController
 
     echo view('templates/html_header');
     echo view('templates/navbar');
-    echo view('testeDb');
+    echo view('testeDb', ['form' => view('templates/createPost/createPost')]);
 
     #\var_dump($this->getAllUsers());
 
