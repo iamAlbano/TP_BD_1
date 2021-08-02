@@ -13,7 +13,6 @@ class Login extends BaseController
 		$this->isLoggedIn();
 		$this->frontend();
 		
-		
 
 	}
 

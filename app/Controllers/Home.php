@@ -82,7 +82,7 @@ class Home extends BaseController
   public function isntLoggedIn()
   {
     if (!session()->has('name')) {
-      header("Location: /Login");
+      header("Location: Login");
       die();
     }
   }
