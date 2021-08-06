@@ -50,6 +50,13 @@ class Home extends BaseController
         'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
 
       ],
+      [
+        'name' => 'LUAN DO GITHUB',
+        'username' => 'GITHUB_da_Roça',
+        'text' => 'test de texto de post 3ASDASDASD',
+        'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
+
+      ],
     ];
 
     return $posts;
