@@ -10,13 +10,13 @@
         <div class="col-12">
           <?= $form ?>
         </div>
-        <hr>
+
 
       </div>
 
     </div>
 
-
+    <!-- teste data base 
     <div class="col-12">
       <h2> Teste DB</h2>
 
@@ -30,5 +30,5 @@
       </div>
 
     </div>
-
+ -->
   </main>

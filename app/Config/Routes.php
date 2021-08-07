@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 // Rota para testar a conexão com banco de dados
-$routes->get('/teste', 'TesteDB::index');
+$routes->get('/TesteDB', 'TesteDB::index');
 
 /*
  * --------------------------------------------------------------------
