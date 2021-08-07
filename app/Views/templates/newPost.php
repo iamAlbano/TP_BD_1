@@ -6,12 +6,17 @@
       <p class="d-block text-gray-dark">@<?= session()->get('username') ?></p>
     </div>
 
+    <!--     
     <p class="media-body pb-3 mb-0 big lh-125 post-text">
       <input class=" form-control user-post" type="text" placeholder="Seu post aqui">
 
     <p class="media-body pb-3 mb-0 small lh-125 post-text">
       <input class=" form-control link-post" type="text" placeholder="Quer compartilhar um vídeo? coloque o link aqui">
     </p>
+ -->
+
+
+
   </div>
 
 </div>

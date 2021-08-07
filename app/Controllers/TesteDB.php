@@ -24,11 +24,11 @@ class TesteDB extends BaseController
   public function index()
   {
 
-
+    /*
     header('Access-Control-Allow-Origin: website_url');
     header("Content-Type: application/json; charset=UTF-8");
     Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
-
+    */
     echo view('templates/html_header');
     echo view('templates/navbar');
     echo view('testeDb', ['form' => view('templates/createPost/createPost')]);
