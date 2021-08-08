@@ -27,6 +27,8 @@
       transform: translate(-50%, -50%);
     }
 
+
+    /* ----- feed/home -----*/
     .home {
       padding-top: 8em;
     }
@@ -54,6 +56,7 @@
 
     .feed-top-elements {
       justify-content: center;
+      margin: 8rem 0;
     }
 
     .feed-elements {
@@ -62,12 +65,28 @@
       margin-top: 4vh;
     }
 
+    /*
     .new-post-element {
       margin-top: 18vh !important;
     }
+    */
 
     .ck-editor__editable {
       min-height: 350px;
+    }
+
+    .new-post-btn-row {
+      justify-content: center;
+      margin: 2rem 0 1rem;
+    }
+
+    /*----- New post page -----*/
+    .new-post-section-row {
+      justify-content: center;
+    }
+
+    .new-post-input {
+      margin-bottom: 2rem;
     }
 
     /*FOOTER*/
