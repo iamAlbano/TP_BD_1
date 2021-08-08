@@ -10,17 +10,17 @@
 
        <span style="float: right"> 07 - ago - 2021</span>
        <p class="media-body pb-3 mb-0 small lh-125 post-text">
-         <li> Tem que ser uma prévia do texto </li>
-         <li> Limitar n de caracteres aqui nesta prévia </li>
-         <li> Redirecionar a rota do post /post/:id</li>
-
+         Os Muppets tocando Bohemian Rhapsody kakakaka
        </p>
 
-       <p class="media-body pb-3 mb-0 small lh-125 post-text">
-         <?= $post['text'] ?>
-       </p>
      </div>
-     <iframe width="620" height="415" src="<?= $post['link'] ?>"></iframe>
+     <div class="row new-post-section-row">
+       <div class="col-9 media-link">
+         <div class="row new-post-section-row">
+           <iframe width="620" height="415" src="<?= $post['link'] ?>"></iframe>
+         </div>
+       </div>
+     </div>
    </div>
 
 
