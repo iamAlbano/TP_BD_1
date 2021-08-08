@@ -8,22 +8,40 @@ use Config\Database as DB;
 
 class SignUp extends BaseController
 {
-
-	
-    
+ 
 
 	public function index()
 	{	
-		echo view('templates/html_header');
-		echo view('signup');
+		$this->isLoggedIn();
+		header("Location: SignUp/newUser");
+		die();
+	
 
-		// return view('welcome_message');
 	}
+
+	public function username()
+  {
+	$this->isLoggedIn();
+	echo view('templates/message', ['message' => 'Nome de usuário indisponível!', 'type' => 'warning']);
+    $this->newUser();
+  }
+
+  public function email()
+  {
+	$this->isLoggedIn();
+	echo view('templates/message', ['message' => 'E-mail já cadastrado!', 'type' => 'warning']);
+    $this->newUser();
+  }
 
 	public function isLoggedIn(){
 		if(session()->has('name')){
 		header("Location: Home");
 		die();  }
+	}
+
+	public function newUser(){
+		echo view('templates/html_header');
+		echo view('signup');
 	}
 
 	public function register(){
@@ -45,13 +63,15 @@ class SignUp extends BaseController
 		foreach ($data->getResult() as $row){
 			
 			if($row->email == $parameter['email']){
-				echo 'Email já cadastrado!';
-				return;
+				header("Location: email");
+				die();
+				
 			} 
 			
 			if($row->username == $parameter['username']){
-				echo 'O nome de usuário já existe!';
-				return;
+				header("Location: username");
+				die();
+			
 			}
 			
 		}

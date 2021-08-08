@@ -13,12 +13,12 @@ class Login extends BaseController
   {
 	
     $this->isLoggedIn();
-    header("Location: Login/frontend");
-	die();
+    header("Location: Login/SignIn");
+	  die();
    
   }
 
-  public function frontend()
+  public function SignIn()
   {
     echo view('templates/html_header');
     echo view('login');
@@ -27,8 +27,8 @@ class Login extends BaseController
   public function incorrect()
   {
     echo view('templates/message', ['message' => 'E-mail ou senha incorretos', 'type' => 'warning']);
-	$this->isLoggedIn();
-    $this->frontend();
+	  $this->isLoggedIn();
+    $this->SignIn();
   }
 
   //cria a sessão

@@ -2,7 +2,7 @@
     
 <main class="form-signin">
 
-<form action="SignUp/register" method="post" accept-charset="utf-8">
+<form action="register" method="post" accept-charset="utf-8">
 
     <h1 class="h3 mb-3 fw-normal">Cadastre-se!</h1>
     <div class="form-floating">
