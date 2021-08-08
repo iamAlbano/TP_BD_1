@@ -89,6 +89,38 @@
       margin-bottom: 2rem;
     }
 
+    /* ------ Post Page ----- */
+    .post-page-row {
+      margin-bottom: 2rem;
+    }
+
+    #new-comment-form {
+      padding-left: 2rem;
+      font-size: 18px;
+      color: gray;
+    }
+
+    .media-link {
+      margin: 2rem 0;
+    }
+
+    .new-comment-label {
+      margin-bottom: 1rem;
+    }
+
+    .comment-btn-row {
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .comment-btn {
+      width: 13%;
+    }
+
+    .comment-element {
+      padding: 2rem;
+    }
+
     /*FOOTER*/
     footer {
       text-align: center;

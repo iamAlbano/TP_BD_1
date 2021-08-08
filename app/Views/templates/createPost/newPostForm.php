@@ -48,7 +48,7 @@
           extraPlugins: 'embed,autoembed, easyimage,editorplaceholder',
           removePlugins: 'image',
           editorplaceholder: 'Start typing here...',
-          height: 500,
+          height: 450,
 
           // Load the default contents.css file plus customizations for this sample.
           contentsCss: [
