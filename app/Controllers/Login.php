@@ -9,13 +9,13 @@ class Login extends BaseController
 
 
 
-  public function index($message = '')
+  public function index()
   {
-
+	
     $this->isLoggedIn();
-    $this->frontend();
-    if ($message != '')
-      $this->errorMessage('E-mail ou senha incorretos');
+    header("Location: Login/frontend");
+	die();
+   
   }
 
   public function frontend()
@@ -24,9 +24,11 @@ class Login extends BaseController
     echo view('login');
   }
 
-  public function errorMessage($message)
+  public function incorrect()
   {
-    echo view('templates/errorMsg', ['message' => $message]);
+    echo view('templates/message', ['message' => 'E-mail ou senha incorretos', 'type' => 'warning']);
+	$this->isLoggedIn();
+    $this->frontend();
   }
 
   //cria a sessão
@@ -37,7 +39,7 @@ class Login extends BaseController
       'name' => $name,
       'username' => $username
     ]);
-    header("Location: /Home");
+    header("Location: ../Home");
     die();
   }
 
@@ -62,9 +64,9 @@ class Login extends BaseController
     $data = $db->query("SELECT * FROM tb_user WHERE email = :email: AND pass = :password:", $parameter)->getResultObject();
 
     if (empty($data)) {
+		header("Location: incorrect");
+		die();
 
-
-      die();
     } else {
       $this->log($data['0']->id, $data['0']->username, $data['0']->first_name);
     }

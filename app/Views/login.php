@@ -1,7 +1,7 @@
 <body class="text-center">
     
 <main class="form-signin">
-  <form action="Login/autentication" method="post" accept-charset="utf-8">
+  <form action="./autentication" method="post" accept-charset="utf-8">
     <h1 class="h3 mb-3 fw-normal">Bem-Vindo!</h1>
 
     <div class="form-floating">
