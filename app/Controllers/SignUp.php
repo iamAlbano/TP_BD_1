@@ -53,7 +53,7 @@ class SignUp extends BaseController
 			'lastName' => $this->request->getPost('lastName'),
 			'username' => $this->request->getPost('username'), 
 			'email' => $this->request->getPost('email'), 
-			'password' => $this->request->getPost('pass')
+			'password' => password_hash($this->request->getPost('pass'), PASSWORD_BCRYPT)
 		];
 
 		

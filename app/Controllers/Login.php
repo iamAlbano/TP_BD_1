@@ -26,7 +26,14 @@ class Login extends BaseController
 
   public function incorrect()
   {
-    echo view('templates/message', ['message' => 'E-mail ou senha incorretos', 'type' => 'warning']);
+    echo view('templates/message', ['message' => 'E-mail não encontrado', 'type' => 'warning']);
+	  $this->isLoggedIn();
+    $this->SignIn();
+  }
+
+  public function incorrectPass()
+  {
+    echo view('templates/message', ['message' => 'Senha incorreta', 'type' => 'warning']);
 	  $this->isLoggedIn();
     $this->SignIn();
   }
@@ -61,14 +68,22 @@ class Login extends BaseController
       'password' => $this->request->getPost('pass')
     ];
 
-    $data = $db->query("SELECT * FROM tb_user WHERE email = :email: AND pass = :password:", $parameter)->getResultObject();
+    $data = $db->query("SELECT * FROM tb_user WHERE email = :email:", $parameter)->getResultObject();
 
     if (empty($data)) {
 		header("Location: incorrect");
 		die();
 
-    } else {
+    } 
+
+    var_dump($data);
+
+    if(password_verify($parameter['password'], $data[0]->pass)){
+
       $this->log($data['0']->id, $data['0']->username, $data['0']->first_name);
+    } else {
+      header("Location: incorrectPass");
+		die();
     }
 
     $db->close();
