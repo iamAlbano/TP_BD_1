@@ -168,16 +168,41 @@ class Post extends BaseController
       $id = $_GET['id'];
       $post = $this->get_post($id);
       echo view('templates/html_header');
-      echo view('templates/navbar');
+      $this->navbar();
       echo view('templates/postPage/postPage', [
         'postContent' => view('templates/postPage/postContent', ['post' => $post]),
-        'commentForm' => view('templates/postPage/commentForm', ['id' => $post->id]),
+        'commentForm' => $this->userComment($post->id),
         'commentList' => view('templates/postPage/commentList', ['comments' =>$this->get_post_comments($id)])
       ]);
       #\var_dump($this->get_post_comments($id));
       echo view('templates/footer');
     }
     
+  }
+
+  public function navbar(){
+    if($this->isLoggedIn()){
+      echo view('templates/navbar');
+    } else {
+      echo view('templates/navbarLogOut');
+    }
+  }
+
+  public function userComment($id){
+    if($this->isLoggedIn()){
+      return view('templates/postPage/commentForm', ['id' => $id]);
+    } else {
+      return view('templates/postPage/joinComment');
+    }
+  }
+
+  public function isLoggedIn()
+  {
+    if (session()->has('name')) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
   }
 
 }

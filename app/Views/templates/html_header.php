@@ -122,7 +122,7 @@
       margin-bottom: 2rem;
     }
     .post-content {
-      margin: 5rem 0;
+      margin: 2rem 0;
       padding: 0rem 2rem;
     }
     .post-content p {
