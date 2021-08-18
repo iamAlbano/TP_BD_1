@@ -20,4 +20,6 @@ class Post extends BaseController
     ]);
     echo view('templates/footer');
   }
+
 }
+

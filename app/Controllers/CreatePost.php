@@ -3,10 +3,12 @@
 namespace App\Controllers;
 
 use Config\Database as DB;
+use App\Libraries\Post as Post;
 
 
 class CreatePost extends BaseController
 {
+
   public function index()
 
   {
@@ -15,18 +17,35 @@ class CreatePost extends BaseController
     echo view('templates/navbar');
     echo view('templates/createPost/createPost', ['form' => view('templates/createPost/newPostForm')]);
 
-    if ($this->request) {
-      // salvar o post e redirecionar
-      echo '<pre>';
-      \var_dump(session()->get('name'));
-      \var_dump(session()->get('username'));
-      \var_dump(session()->get('id'));
-      echo '</pre>';
+    if ($this->request->getPost()) {
+      $this->createPost();
 
-      echo '<pre>';
-      \print_r($this->request->getPost());
-      echo '</pre>';
     }
     echo view('templates/footer');
+  }
+
+  public function createPost(){
+    
+    $db = DB::connect();
+
+    $post = [
+      'id_user' => \session()->get('id'),
+      'title' => $this->request->getPost('title'),
+      'text' => $this->request->getPost('text'),
+      'category' => $this->request->getPost('category'),
+    ];
+
+
+    $data = $db->query("INSERT INTO  `tb_post`
+    (`id_user`, `title`, `text`, `category`)
+    VALUES(
+      :id_user:,
+      :title:,
+      :text:,
+      :category:
+    )", $post);
+
+    $db->close();
+
   }
 }
