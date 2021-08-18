@@ -126,7 +126,12 @@ class Home extends BaseController
 
   public function frontend($posts)
   {
-    $data['newPost'] = view('templates/newPost');
+    if($this->isLoggedIn()){
+      $data['newPost'] = view('templates/newPost');
+    } else {
+      $data['newPost'] = view('templates/JoinUs');
+    }
+
     $data['filterFeed'] = view('templates/filterFeed');
     $data['posts'] = view('templates/post', ['posts' => $posts]);
 
