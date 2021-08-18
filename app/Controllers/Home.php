@@ -11,7 +11,8 @@ class Home extends BaseController
   public function index()
   {
 
-    $this->isntLoggedIn();
+    echo view('templates/html_header');
+    $this->navbar();
     $this->frontend($posts = $this->posts());
   }
 
@@ -129,9 +130,6 @@ class Home extends BaseController
     $data['filterFeed'] = view('templates/filterFeed');
     $data['posts'] = view('templates/post', ['posts' => $posts]);
 
-   
-    echo view('templates/html_header');
-    echo view('templates/navbar');
     echo view('Home', [
       'newPost' => $data['newPost'],
       'filterFeed' => $data['filterFeed'],
@@ -141,19 +139,27 @@ class Home extends BaseController
    
   }
 
+  public function navbar(){
+    if($this->isLoggedIn()){
+      echo view('templates/navbar');
+    } else {
+      echo view('templates/navbarLogOut');
+    }
+  }
 
   public function logout()
   {
     session()->destroy();
-    header("Location: ../Login");
+    header("Location: ../Home");
     die();
   }
 
-  public function isntLoggedIn()
+  public function isLoggedIn()
   {
-    if (!session()->has('name')) {
-      header("Location: Login");
-      die();
+    if (session()->has('name')) {
+      return TRUE;
+    } else {
+      return FALSE;
     }
   }
 }
