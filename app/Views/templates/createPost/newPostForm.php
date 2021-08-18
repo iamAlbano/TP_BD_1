@@ -23,6 +23,7 @@
             <select class="form-select" id="category" name="category" aria-label="categories" required>
               <option selected value="">Selecione uma categoria</option>
               <option value="albums">Albums</option>
+              <option value="albums">Musicas</option>
               <option value="curiosidades">Curiosidades</option>
               <option value="documentarios">Documentários</option>
               <option value="playlists">PlayLists</option>
@@ -53,9 +54,9 @@
             }
         });
         CKEDITOR.replace('text', {
-          extraPlugins: 'embed,autoembed, easyimage,editorplaceholder',
+          extraPlugins: 'embed,autoembed,editorplaceholder',
           removePlugins: 'image',
-          editorplaceholder: 'Start typing here...',
+          editorplaceholder: ' Para inserir mídia externa (Videos, imagens, etc..) basta copiar o link da mídia dentro desta caixa de texto.',
           height: 450,
           // Load the default contents.css file plus customizations for this sample.
           contentsCss: [

@@ -30,11 +30,12 @@ class Home extends BaseController
 
     
     $dom->loadHTML($preventText);
-    $link = '';
+    $links = array();
     $searchVideo = $dom->getElementsByTagName('div');
     foreach ($searchVideo as $video) {
       $iframe_ = $video->getElementsByTagName('iframe');
-      $link = $iframe_[0]->getAttribute('src');
+      foreach ($iframe_ as $link)
+      $links [] = $link->getAttribute('src');
 
     }
 
@@ -51,7 +52,7 @@ class Home extends BaseController
       
       $width->value = 620;
       $height->value = 415;
-      $src->value = $link;
+      $src->value = $links[$i];
 
       $nodeIframe->appendChild($width);
       $nodeIframe->appendChild($height);
@@ -98,7 +99,8 @@ class Home extends BaseController
     $db = DB::connect();
     $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.* 
     FROM `tb_user` U, `tb_post` P
-    WHERE U.`id`=`id_user`');
+    WHERE U.`id`=`id_user`
+    ORDER BY `date` DESC');
 
     $posts = array();
     if ($query) {
