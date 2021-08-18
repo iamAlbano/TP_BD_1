@@ -107,6 +107,7 @@ class Home extends BaseController
       foreach ($query->getResultObject('App\Libraries\Post') as $row) {
         
         $post = [
+          'id' => $row->id,
           'name' => $row->first_name . " " . $row->last_name,
           'username' => $row->username,
           'title' => $row->title,

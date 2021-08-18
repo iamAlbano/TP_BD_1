@@ -1,5 +1,6 @@
  <?php foreach ($posts as $post) : ?>
 
+
    <div class="my-3 p-3 bg-white rounded box-shadow post feed-elements">
     <div class="media text-muted pt-3">
       <span style="float: right"> <?= $post['date'] ?></span>  
@@ -8,9 +9,12 @@
          <strong class="d-block text-gray-dark"> <?= $post['name'] ?> *[ Deixar clicável]</strong>
          <p class="d-block text-gray-dark">@<?= $post['username'] ?></p>
        </div>
-       <h5 style="margin-top: 2rem; margin-bottom: 2rem;"> <?= $post['title'] ?></h5>
-  
-       <div class="post-preview"> <?= $post['text'] ?> </div>
+         
+       <a class="post-title-feed text-muted" href="Post?id=<?= $post['id'] ?>">
+        <h4 style="margin-top: 2rem; margin-bottom: 2rem;"><?= $post['title'] ?></h4>
+       </a>
+
+       <div class="post-content"> <?= $post['text'] ?> </div>
 
     </div>
     <div class="row new-post-section-row">

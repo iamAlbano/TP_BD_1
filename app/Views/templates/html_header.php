@@ -52,6 +52,10 @@
       padding-top: 0;
     }
 
+    .post-title-feed {
+      text-decoration: none;
+      color: none;
+    }
     .user-post {
       height: 3rem;
 
@@ -116,6 +120,13 @@
     /* ------ Post Page ----- */
     .post-page-row {
       margin-bottom: 2rem;
+    }
+    .post-content {
+      margin: 5rem 0;
+      padding: 0rem 2rem;
+    }
+    .post-content p {
+      margin: 0;
     }
 
     #new-comment-form {

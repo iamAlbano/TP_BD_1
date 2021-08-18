@@ -7,7 +7,11 @@
       <!-- Render post -->
       <?= $postContent ?>
       <hr />
+    </div>
+  </div>
 
+  <div class="row feed-top-elements">
+    <div class="col-md-10">
       <!-- New comment -->
       <?= $commentForm ?>
       <hr />
@@ -17,8 +21,7 @@
       <?= $commentList ?>
       <hr />
 
-
-    </div>
+      </div>
   </div>
 
 </main>
