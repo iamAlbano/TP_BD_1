@@ -10,7 +10,7 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Meu perfil</a></li>
+        <li><a href="UserInfo" class="nav-link px-2 link-secondary">Meu perfil</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Timeline</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Avaliações</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Configurações</a></li>
@@ -25,7 +25,7 @@
           <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">Meu perfil</a></li>
+          <li><a class="dropdown-item" href="UserInfo">Meu perfil</a></li>
           <li><a class="dropdown-item" href="#">Configurações</a></li>
           <li><a class="dropdown-item" href="#">Meus posts</a></li>
           <li>
