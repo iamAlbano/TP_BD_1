@@ -133,21 +133,51 @@ class Post extends BaseController
     return $comments;
   }
 
-  public function index($id=  NULL)
-  {
 
+  public function new_comment($id = NULL){    
     if($_GET['id']) {
       $id = $_GET['id'];
+      $db = DB::connect();
+      $comment = [
+        'id_user' => \session()->get('id'),
+        'id_post' => $id,
+        'text' => $this->request->getPost('text')
+      ];
+      
+      $data = $db->query("INSERT INTO `tb_comment`
+      (`id_user`, `id_post`, `text`)
+      VALUES (
+        :id_user:,
+        :id_post:,
+        :text:
+      )", $comment);
+
+      $db->close();
+
+      header("Location: ../Post?id=". $id);
+      die();
+    }
+
+  }
+
+
+  public function index($id=  NULL)
+  {
+    
+    if($_GET['id']) {
+      $id = $_GET['id'];
+      $post = $this->get_post($id);
       echo view('templates/html_header');
       echo view('templates/navbar');
       echo view('templates/postPage/postPage', [
-        'postContent' => view('templates/postPage/postContent', ['post' =>$this->get_post($id)]),
-        'commentForm' => view('templates/postPage/commentForm'),
+        'postContent' => view('templates/postPage/postContent', ['post' => $post]),
+        'commentForm' => view('templates/postPage/commentForm', ['id' => $post->id]),
         'commentList' => view('templates/postPage/commentList', ['comments' =>$this->get_post_comments($id)])
       ]);
       #\var_dump($this->get_post_comments($id));
       echo view('templates/footer');
     }
+    
   }
 
 }
