@@ -13,15 +13,14 @@ class CreatePost extends BaseController
 
   {
 
+    if ($this->request->getPost()){
+      $this->createPost();
+    }
     echo view('templates/html_header');
     echo view('templates/navbar');
     echo view('templates/createPost/createPost', ['form' => view('templates/createPost/newPostForm')]);
-
-    if ($this->request->getPost()) {
-      $this->createPost();
-
-    }
     echo view('templates/footer');
+
   }
 
   public function createPost(){
@@ -46,6 +45,9 @@ class CreatePost extends BaseController
     )", $post);
 
     $db->close();
+
+    header("Location: ./Home");
+    die();
 
   }
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Config\Database as DB;
+use DOMDocument;
 
 class Home extends BaseController
 {
@@ -14,44 +15,108 @@ class Home extends BaseController
     $this->frontend($posts = $this->posts());
   }
 
+
+  public function get_post_preview($text) {
+
+    $preventText = $text;
+    
+    $preventText = \str_replace("<figure ","<a ",  $preventText);
+    $preventText = \str_replace( "</figure>","</a>",  $preventText);
+
+    $preventText = \str_replace("<figcaption>","<i>",  $preventText);
+    $preventText = \str_replace( "</figcaption>","</i>",  $preventText);
+    $dom = new DOMDocument();
+
+
+    
+    $dom->loadHTML($preventText);
+    $link = '';
+    $searchVideo = $dom->getElementsByTagName('div');
+    foreach ($searchVideo as $video) {
+      $iframe_ = $video->getElementsByTagName('iframe');
+      $link = $iframe_[0]->getAttribute('src');
+
+    }
+
+    $dom = new DOMDocument();
+    @$dom->loadHTML($preventText);
+    $elements = $dom->getElementsByTagName("div");
+    for ($i = $elements->length - 1; $i>=0; $i--){
+      $nodeDiv = $elements->item($i);
+      
+      $nodeIframe = $dom->createElement("iframe");
+      $width = $dom->createAttribute('width');
+      $height = $dom->createAttribute('height');
+      $src = $dom->createAttribute('src');
+      
+      $width->value = 620;
+      $height->value = 415;
+      $src->value = $link;
+
+      $nodeIframe->appendChild($width);
+      $nodeIframe->appendChild($height);
+      $nodeIframe->appendChild($src);
+      
+      $row_post_section = $dom->createElement("div");
+      $row_post_section_class = $dom->createAttribute("class");
+      $row_post_section_class->value = "row new-post-section-row";
+      $row_post_section->appendChild($row_post_section_class);
+
+      $div_mediaLink = $dom->createElement("div");
+      $div_mediaLink_class = $dom->createAttribute("class");
+      $div_mediaLink_class->value = "col-9 media-link";
+      $div_mediaLink->appendChild($div_mediaLink_class);
+
+      $row_iframe = $dom->createElement("div");
+      $row_iframe_class = $dom->createAttribute("class");
+      $row_iframe_class->value = "row new-post-section-row";
+      $row_iframe->appendChild($row_iframe_class);
+
+      $row_iframe->appendChild($nodeIframe);
+      $div_mediaLink->appendChild($row_iframe);
+      $row_post_section->appendChild($div_mediaLink);
+      
+      $nodeDiv->parentNode->replaceChild($row_post_section, $nodeDiv);
+
+    }
+    
+    $preventText = $dom->saveHTML();
+    $preventText = \str_replace("<a ", "<figure ", $preventText);
+    $preventText = \str_replace("</a>", "</figure>",  $preventText);
+
+    $preventText = \str_replace("<i>","<figcaption>",  $preventText);
+    $preventText = \str_replace( "</i>","</figcaption>",  $preventText);
+    
+    return $preventText;
+  
+    #return " testando lalal";
+  }
+
   public function posts()
   {
-    /*
+    
     $db = DB::connect();
-    $query = $db->query('SELECT * FROM `tb_post`');
+    $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.* 
+    FROM `tb_user` U, `tb_post` P
+    WHERE U.`id`=`id_user`');
 
     $posts = array();
     if ($query) {
       foreach ($query->getResultObject('App\Libraries\Post') as $row) {
-        $posts[] = $row;
+        
+        $post = [
+          'name' => $row->first_name . " " . $row->last_name,
+          'username' => $row->username,
+          'title' => $row->title,
+          'date' => $row->date,
+          #'text' => $row->text,
+          'text' => $this->get_post_preview($row->text),
+          'category' => $row->category
+        ];        
+        $posts[] = $post;
       }
     }
-    */
-
-
-    $posts = [
-      [
-        'name' => 'Jusé',
-        'username' => 'Zé_da_Roça',
-        'text' => 'test de texto de post',
-        'link' => 'https://www.youtube.com/embed/tgbNymZ7vqY'
-      ],
-      [
-        'name' => 'Maria',
-        'username' => 'Maria_da_Roça',
-        'text' => 'test de texto de post 2',
-        'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
-
-      ],
-      [
-        'name' => 'Joana',
-        'username' => 'Joana_da_Roça',
-        'text' => 'test de texto de post 3',
-        'link' => 'https://www.youtube.com/embed/pMdlF4rbf6Y'
-
-      ],
-    ];
-
+    
     return $posts;
   }
 
@@ -61,6 +126,7 @@ class Home extends BaseController
     $data['filterFeed'] = view('templates/filterFeed');
     $data['posts'] = view('templates/post', ['posts' => $posts]);
 
+   
     echo view('templates/html_header');
     echo view('templates/navbar');
     echo view('Home', [
@@ -69,6 +135,7 @@ class Home extends BaseController
       'postList' => $data['posts']
     ]);
     echo view('templates/footer');
+   
   }
 
 

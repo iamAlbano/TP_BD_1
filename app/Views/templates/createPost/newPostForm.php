@@ -3,7 +3,7 @@
   <!-- Editor de texto -->
   <div class="col-md-10">
 
-    <form action="Home" method="post" role="form" accept-charset="utf-8" id="form-post">
+    <form action="" method="post" role="form" accept-charset="utf-8" id="form-post">
 
       <h4 class="h4 mb-3 fw-normal"> Título </h4>
       <div class="form-group mb-3 new-post-input">
@@ -47,29 +47,23 @@
         
         $("form").submit( function(e) {
             var messageLength = CKEDITOR.instances['text'].getData().replace(/<[^>]*>/gi, '').length;
-            if( messageLength < 25 ) {
-                alert( 'O Post deve conter no minimo 50 caracteres' );
+            if( messageLength < 15 ) {
+                alert( 'O Post deve conter no minimo 15 caracteres' );
                 e.preventDefault();
             }
         });
         CKEDITOR.replace('text', {
-          extraPlugins: 'embed,autoembed,image2',
+          extraPlugins: 'embed,autoembed, easyimage,editorplaceholder',
           removePlugins: 'image',
-          height: 500,
-
+          editorplaceholder: 'Start typing here...',
+          height: 450,
           // Load the default contents.css file plus customizations for this sample.
           contentsCss: [
-            'http://cdn.ckeditor.com/4.16.2/full-all/contents.css',
-            'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/css/widgetstyles.css'
+            'http://cdn.ckeditor.com/4.16.1/full-all/contents.css',
+            'https://ckeditor.com/docs/ckeditor4/4.16.1/examples/assets/css/widgetstyles.css'
           ],
           // Setup content provider. See https://ckeditor.com/docs/ckeditor4/latest/features/media_embed
           embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-
-          // Configure the Enhanced Image plugin to use classes instead of styles and to disable the
-          // resizer (because image size is controlled by widget styles or the image takes maximum
-          // 100% of the editor width).
-          image2_alignClasses: ['image-align-left', 'image-align-center', 'image-align-right'],
-          image2_disableResizer: true,
 
         });
 
