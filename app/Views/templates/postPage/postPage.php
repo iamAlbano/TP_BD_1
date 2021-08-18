@@ -19,7 +19,7 @@
 
       <!-- Comment List -->
       <?= $commentList ?>
-      <hr />
+
 
       </div>
   </div>

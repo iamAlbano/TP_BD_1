@@ -104,6 +104,34 @@ class Post extends BaseController
     }
   }
 
+  public function get_post_comments($id){
+    $db = DB::connect();
+    $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, C.*
+      FROM `tb_user` U, `tb_comment` C 
+      WHERE C.`id_post`=' .$id. ' AND C.`id_user`=U.`id`
+      ORDER BY C.`date` DESC
+    ');
+
+    $comments = array();
+    if ($query){
+      foreach ($query->getResultObject('App\Libraries\Comment') as $row){
+        $comment = [
+          'id' => $row->id,
+          'id_user'=>$row->id_user,
+          'name' => $row->first_name .' '. $row->last_name,
+          'username' => $row->username,
+          'date' => $row->date,
+          'text' => $row->text
+        ];
+        $comments [] = $comment;
+      }
+
+    }else {
+      $comments [] = '';
+    }
+    
+    return $comments;
+  }
 
   public function index($id=  NULL)
   {
@@ -115,8 +143,9 @@ class Post extends BaseController
       echo view('templates/postPage/postPage', [
         'postContent' => view('templates/postPage/postContent', ['post' =>$this->get_post($id)]),
         'commentForm' => view('templates/postPage/commentForm'),
-        'commentList' => view('templates/postPage/commentList')
+        'commentList' => view('templates/postPage/commentList', ['comments' =>$this->get_post_comments($id)])
       ]);
+      #\var_dump($this->get_post_comments($id));
       echo view('templates/footer');
     }
   }
