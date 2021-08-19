@@ -80,7 +80,7 @@ class Login extends BaseController
 
     if(password_verify($parameter['password'], $data[0]->pass)){
 
-      $this->log($data['0']->id, $data['0']->username, $data['0']->first_name);
+      $this->log($data['0']->id, $data['0']->first_name, $data['0']->username);
     } else {
       header("Location: incorrectPass");
 		die();

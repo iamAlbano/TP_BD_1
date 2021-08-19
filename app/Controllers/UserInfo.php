@@ -159,8 +159,9 @@ class UserInfo extends BaseController
 
 
 
-	public function log($name, $username){
+	public function log($id, $name, $username){
 		session()->set([
+			'id' => $id,
 			'name' => $name,
 			'username' => $username]);
 			header("Location: /TP_BD_1/public/Home");
