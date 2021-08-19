@@ -11,6 +11,7 @@
         <span style="float: right;margin-right: 20px;"> <?= $post['date'] ?></span>  
       
         <a class="post-title-feed text-muted " href="Post?id=<?= $post['id'] ?>">
+        
           <img src="https://i.pinimg.com/originals/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.png" alt="mdo" width="32" height="32" class="rounded-circle">
           <div class="user-data">
             <strong class="d-block text-gray-dark"> <?= $post['name'] ?></strong>

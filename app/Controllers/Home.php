@@ -26,9 +26,15 @@ class Home extends BaseController
         echo view('templates/html_header');
         $this->navbar();
         $this->frontend($posts = $this->posts('comments'));
+      }else {
+        if($filter == 'category' and isset($_GET['cat'])){
+          $category = $_GET['cat'];
+          echo view('templates/html_header');
+          $this->navbar();
+          $this->frontend($posts = $this->posts($category));
+
+        }
       }
-
-
     }
 
     //header("Location: ../Home");
@@ -116,15 +122,19 @@ class Home extends BaseController
 
   public function posts($filter)
   {
-    
+    $category = '';
+    if ($filter != 'comments' AND $filter != 'date' ){
+      $category = 'AND P.`category`= "' . $filter .'"';
+      $filter = 'date';
+    }
 
 
     $db = DB::connect();
     $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.*,  COUNT( C.`id_post`) AS comments
     FROM `tb_user` U, `tb_post` P LEFT JOIN `tb_comment` C ON P.`id`=C.`id_post`
-    WHERE U.`id`=P.`id_user`
+    WHERE U.`id`=P.`id_user` '.$category.' 
     GROUP BY P.`id`
-    ORDER BY `'.$filter.'` DESC');
+    ORDER BY '.$filter.' DESC');
 
     $posts = array();
     if ($query) {
