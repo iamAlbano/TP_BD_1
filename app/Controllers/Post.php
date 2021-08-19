@@ -133,6 +133,7 @@ class Post extends BaseController
         $comment = [
           'id' => $row->id,
           'id_user'=>$row->id_user,
+          'id_post'=>$row->id_post,
           'name' => $row->first_name .' '. $row->last_name,
           'username' => $row->username,
           'date' => $row->date,
@@ -174,20 +175,40 @@ class Post extends BaseController
     }
 
   }
+  public function delete_comment($id = NULL, $id_user= NULL, $id_post= NULL){
+    if(isset($_GET['id']) and isset($_GET['id_user'])){
 
+      if ($_GET['id_user'] == \session()->get('id')){  
+        $id = $_GET['id'];
+        $id_post = $_GET['id_post'];
+        $db = DB::connect();
+        $query = $db->query('DELETE FROM `tb_comment` WHERE `id`='.$id);
+
+
+        header("Location: ../Post?id=". $id_post);
+        die();
+      }
+    }
+    header("Location: ../Home");
+    die();
+  }
 
   public function index($id=  NULL)
   {
     
     if(isset($_GET['id'])) {
       $id = $_GET['id'];
+      
       $post = $this->get_post($id);
+      $comments = $this->get_post_comments($id);
+      $n_comments = sizeof($comments);
+
       echo view('templates/html_header');
       $this->navbar();
       echo view('templates/postPage/postPage', [
-        'postContent' => view('templates/postPage/postContent', ['post' => $post]),
+        'postContent' => view('templates/postPage/postContent', ['post' => $post,'n_comments' =>$n_comments]),
         'commentForm' => $this->userComment( $post->id),
-        'commentList' => view('templates/postPage/commentList', ['comments' =>$this->get_post_comments($id)])
+        'commentList' => view('templates/postPage/commentList', ['comments' =>$comments])
       ]);
       #\var_dump($this->get_post_comments($id));
       echo view('templates/footer');

@@ -54,7 +54,13 @@
     .post {
       padding-top: 0;
     }
+    
+    .post-overflow{
+      
+      max-height: 70vh;
+      overflow: hidden;
 
+    }
     .post-title-feed {
       text-decoration: none;
       color: none;
@@ -72,6 +78,13 @@
     .post-preview > p {
       margin: 0;
       margin-top: 3rem;
+    }
+    .fa-comments {
+      color:  #999999;
+      font-size: 20px;
+    }
+    .comment-number-feed {
+      font-family:var(--bs-font-sans-serif);
     }
 
     .feed-top-elements {

@@ -94,13 +94,16 @@ class Home extends BaseController
     #return " testando lalal";
   }
 
+
+
   public function posts()
   {
     
     $db = DB::connect();
-    $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.* 
-    FROM `tb_user` U, `tb_post` P
-    WHERE U.`id`=`id_user`
+    $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.*,  COUNT( C.`id_post`) AS comments
+    FROM `tb_user` U, `tb_post` P LEFT JOIN `tb_comment` C ON P.`id`=C.`id_post`
+    WHERE U.`id`=P.`id_user`
+    GROUP BY P.`id`
     ORDER BY `date` DESC');
 
     $posts = array();
@@ -113,8 +116,8 @@ class Home extends BaseController
           'name' => $row->first_name . " " . $row->last_name,
           'username' => $row->username,
           'title' => $row->title,
+          'comments' => $row->comments,
           'date' => $row->date,
-          #'text' => $row->text,
           'text' => $this->get_post_preview($row->text),
           'category' => $row->category
         ];        

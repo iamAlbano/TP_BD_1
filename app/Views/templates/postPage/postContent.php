@@ -28,6 +28,10 @@
 
     <div class="post-content"> <?= $post->text ?> </div>
 
-  <span class="category-element"><?= $post->category ?></span>
+    <span class="category-element"><?= $post->category ?></span>
+
+    <span class="far fa-comments" style="float:right; margin-right: 1rem">
+        <span class="media text-muted pt-3 comment-number-feed "> <?= $n_comments ?> </span>
+    </span>
 
 </div>

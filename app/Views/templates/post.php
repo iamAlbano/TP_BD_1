@@ -20,21 +20,22 @@
           <h4 style="margin-top: 2rem; margin-left: 1.5rem;"><?= $post['title'] ?></h4>
         </a>
             
-        <div class="post-content"> <?= $post['text'] ?> </div>
+        <div class="post-content post-overflow"> <?= $post['text'] ?> </div>
 
       </div>
-      <div class="row new-post-section-row">
-        <div class="col-9 media-link">
-          <div class="row new-post-section-row">
-            <!-- <iframe width="620" height="415" src=" $post['link'] ?>"></iframe> -->
-          </div>
+      <div class="row new-post-section-row" style="margin-bottom: 1rem;">
+        <div class="col-10" >
+        <a  href="Post?id=<?= $post['id'] ?>" style="float:right;">continuar lendo...</a>
         </div>
       </div>
   
       <span class="category-element"><?= $post['category'] ?></span>
+      <span class="far fa-comments" style="float:right; margin-right: 1rem">
+        <span class="media text-muted pt-3 comment-number-feed "> <?= $post['comments'] ?> </span>
+      </span>
  
     </div>
-
+    
 
 
  <?php endforeach; ?>
