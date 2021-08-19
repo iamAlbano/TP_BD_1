@@ -13,14 +13,26 @@ class Home extends BaseController
 
     echo view('templates/html_header');
     $this->navbar();
-    $this->frontend($posts = $this->posts());
+    $this->frontend($posts = $this->posts('date'));
   }
 
 
 
   public function filter_feed($filter = NULL) {
+    if(isset($_GET['filter'])) {
+      $filter = $_GET['filter'];
+
+      if ($filter == 'hot') {
+        echo view('templates/html_header');
+        $this->navbar();
+        $this->frontend($posts = $this->posts('comments'));
+      }
 
 
+    }
+
+    //header("Location: ../Home");
+    //die();
   }
 
   public function get_post_preview($text) {
@@ -102,7 +114,7 @@ class Home extends BaseController
 
 
 
-  public function posts()
+  public function posts($filter)
   {
     
 
@@ -112,7 +124,7 @@ class Home extends BaseController
     FROM `tb_user` U, `tb_post` P LEFT JOIN `tb_comment` C ON P.`id`=C.`id_post`
     WHERE U.`id`=P.`id_user`
     GROUP BY P.`id`
-    ORDER BY `date` DESC');
+    ORDER BY `'.$filter.'` DESC');
 
     $posts = array();
     if ($query) {

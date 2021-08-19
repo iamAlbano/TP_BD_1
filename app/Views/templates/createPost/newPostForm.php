@@ -22,13 +22,13 @@
           <div class="input-group mb-3">
             <select class="form-select" id="category" name="category" aria-label="categories" required>
               <option selected value="">Selecione uma categoria</option>
-              <option value="albums">Albums</option>
-              <option value="albums">Musicas</option>
-              <option value="curiosidades">Curiosidades</option>
-              <option value="documentarios">Documentários</option>
-              <option value="playlists">PlayLists</option>
-              <option value="resenhas">Resenhas</option>
-              <option value="shows">Shows</option>
+              <option value="Albums">Albums</option>
+              <option value="Musicas">Musicas</option>
+              <option value="Curiosidades">Curiosidades</option>
+              <option value="Documentarios">Documentários</option>
+              <option value="Playlists">PlayLists</option>
+              <option value="Resenhas">Resenhas</option>
+              <option value="Shows">Shows</option>
 
             </select>
           </div>
