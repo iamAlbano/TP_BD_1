@@ -3,12 +3,12 @@
     <a class="nav-item nav-link" href="/TP_BD_1/public/Home">Novos</a>
     <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=hot">Em alta</a>
 
-    <a class="nav-item nav-link" href="#">Albums</a>
-    <a class="nav-item nav-link" href="#">Curiosidades</a>
-    <a class="nav-item nav-link" href="#">Documentários</a>
-    <a class="nav-item nav-link" href="#">Playlists</a>
-    <a class="nav-item nav-link" href="#">Resenhas</a>
-    <a class="nav-item nav-link" href="#">Shows</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=albums">Albums</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=curiosidades">Curiosidades</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=documentarios">Documentários</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=playlists">Playlists</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=resenhas">Resenhas</a>
+    <a class="nav-item nav-link" href="/TP_BD_1/public/Home/filter_feed?&filter=category&cat=shows">Shows</a>
     
 
   </nav>
