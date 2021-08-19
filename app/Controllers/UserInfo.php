@@ -40,8 +40,12 @@ class UserInfo extends BaseController
 	}
 
 	public function myData(){
+		$data= $this->viewData();
 		$userInfo = [
-			'name' => session()->name,
+			'name' => $data[0]->first_name,
+			'last_name' => $data[0]->last_name,
+			'email' => $data[0]->email,
+			'username' => session()->name,
 		  ];
 		echo view('templates/html_header');
         echo view('templates/navbar');
@@ -53,45 +57,34 @@ class UserInfo extends BaseController
 
 		$db = DB::connect();
 
-		$query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username` 
-		FROM `tb_user` U,
-    	WHERE U.`id`=`id_user`');
-
-		$userInfo = [
-			'name' => session()->name,
-  			];
+		$parameter = ['username' => session()->name];
 
 		
 
-		foreach ($data->getResult() as $row){
+		$data = $db->query("SELECT * FROM tb_user WHERE username = :username:", $parameter)->getResultObject();
+		
+		// foreach ($data->getResult() as $row){
 			
-			if($row->email == $parameter['email']){
-				header("Location: email");
-				die();
+		// 	if($row->email == $parameter['email']){
+		// 		header("Location: email");
+		// 		die();
 				
-			} 
+		// 	} 
 			
-			if($row->username == $parameter['username']){
-				header("Location: username");
-				die();
+		// 	if($row->username == $parameter['username']){
+		// 		header("Location: username");
+		// 		die();
 			
-			}
+		// 	}
 			
-		}
-
-		$data = $db->query("INSERT INTO `tb_user`
-		(`first_name`, `last_name`, `username`, `email`, `pass`) 
-		VALUES(
-			:name:,
-			:lastName:,
-			:username:,
-			:email:,
-			:password:
-		)", $parameter);
+		// }
 
 		$db->close();
 
-		$this->log($parameter['name'], $parameter['username']);
+	
+		return $data;
+
+		// $this->log($parameter['name'], $parameter['username']);
 		
         
     }
