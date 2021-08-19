@@ -1,13 +1,11 @@
 <body class="bg-light">
     
-<div class="container">
+<div class="container " style="padding-top: 8em;">
   <main>
-    <div class="py-5 text-center">
-    </div>
 
-    <div class="row g-6 osition-relative">
+    <div class="row g-6 position-relative">
       
-      <div class="col-md-7 col-lg-8 ">
+      <div class="col-md-7 col-lg-8 " style="margin: auto;">
         <h4 class="mb-3">Meus dados</h4>
         <form action="changeData" class="needs-validation" method="post" accept-charset="utf-8">
           <div class="row g-3">
@@ -32,46 +30,42 @@
               <div class="input-group has-validation">
                 <span class="input-group-text">@</span>
                 <input type="text" class="form-control" id="username" name="username"  value="<?=$user['username']?>" placeholder="<?=$user['username']?>" required>
-              <div class="invalid-feedback">
-                  Your username is required.
-                </div>
+              </div>
+              <div >
+              <?=$user['usernameText']?>
               </div>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email" name="email" placeholder="<?=$user['email']?>" value="<?=$user['email']?>" required>
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+              <div>
+              <?=$user['emailText']?>
               </div>
             </div>
 
             <hr class="my-4">
 
             <div class="col-md-4">
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Salvar modificações</button>
+            <button class="w-100 btn btn-success btn-lg" type="submit">Salvar</button>
             </div>
-
             <div class="col-md-4">
-            <button class="w-100 btn btn-warning btn-lg" type="submit">Destacar modificações</button>
+            <a href="/TP_BD_1/public/Home" 
+             class="w-100 btn btn-warning btn-lg">Cancelar</a>
+            </div>
+            <div class="col-md-4">
+            <button class="w-100 btn btn-secondary btn-lg">Alterar senha</button>
             </div>
 
-            <div class="col-md-3"> 
+            
           </div>
          
-        </form>
+          </form>
       </div>
     </div>
   </main>
 
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">© 2017–2021 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
+
 </div>
 
 

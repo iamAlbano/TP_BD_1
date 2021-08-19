@@ -21,16 +21,38 @@ class UserInfo extends BaseController
 
 	public function username()
   {
+
 	$this->isLoggedIn();
-    $this->myData();
-	echo view('templates/message', ['message' => 'Nome de usuário indisponível!', 'type' => 'warning']);
+		$data = $this->viewData();
+		$userInfo = [
+			'name' => $data[0]->first_name,
+			'last_name' => $data[0]->last_name,
+			'email' => $data[0]->email,
+			'username' => session()->username,
+			'usernameText' => 'O Nome de usuário inserido já está em uso',
+			'emailText' => '',
+		  ];
+		$this->header();
+			
+		echo view('templates/UserInformation', ['user' => $userInfo]);
     }
 
   public function email()
     {
-	$this->isLoggedIn();
-    $this->myData();
-	echo view('templates/message', ['message' => 'E-mail já cadastrado!', 'type' => 'warning']);
+		$this->isLoggedIn();
+		$data = $this->viewData();
+		$userInfo = [
+			'name' => $data[0]->first_name,
+			'last_name' => $data[0]->last_name,
+			'email' => $data[0]->email,
+			'username' => session()->username,
+			'usernameText' => '',
+			'emailText' => 'O E-mail inserido já está cadastrado',
+		  ];
+
+	
+		  $this->header();
+		  echo view('templates/UserInformation', ['user' => $userInfo]);
     }
 
 	public function isLoggedIn(){
@@ -40,18 +62,21 @@ class UserInfo extends BaseController
 	}
 
 	public function myData(){
+
+		$this->isLoggedIn();
 		$data = $this->viewData();
-		
 		$userInfo = [
 			'name' => $data[0]->first_name,
 			'last_name' => $data[0]->last_name,
 			'email' => $data[0]->email,
 			'username' => session()->username,
+			'usernameText' => '',
+			'emailText' => '',
 		  ];
 
-		echo view('templates/html_header');
-        echo view('templates/navbar');
+		$this->header();
 		echo view('templates/UserInformation', ['user' => $userInfo]);
+		
 	}
 
 	public function viewData(){
@@ -67,6 +92,11 @@ class UserInfo extends BaseController
 		return $data;	
         
     }
+
+	public function header(){
+		echo view('templates/html_header');
+        echo view('templates/navbar');
+	}
 
 	public function changeData(){
 
@@ -85,18 +115,18 @@ class UserInfo extends BaseController
 		$data = $db->query("SELECT * FROM tb_user WHERE email = :email: OR username  = :username:", $parameter);
 	
 	
-		if( !strcmp($parameter['email'], $user[0]->email)){
+		if( strcmp($parameter['email'], $user[0]->email)){
 		foreach ($data->getResult() as $row){
 			
-			if(strcmp($row->email, $parameter['email']) && !strcmp($row->username, $user[0]->username)){
+			if(!strcmp($row->email, $parameter['email'])){
 				header("Location: email");
 				die();
 				
 			} } }
 
-		if( !strcmp($parameter['username'], $user[0]->username)){
+		if( strcmp($parameter['username'], $user[0]->username)){
 			foreach ($data->getResult() as $row){
-			if(strcmp($row->username, $parameter['username'])  && !strcmp($row->email, $user[0]->email)){
+			if(!strcmp($row->username, $parameter['username'])){
 				header("Location: username");
 				die();
 			
