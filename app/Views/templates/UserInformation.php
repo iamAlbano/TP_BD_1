@@ -45,17 +45,12 @@
             </div>
 
             <hr class="my-4">
-
-            <div class="col-md-4">
+            
+            <div class="col-md-4" style="margin: auto;">
             <button class="w-100 btn btn-success btn-lg" type="submit">Salvar</button>
             </div>
-            <div class="col-md-4">
-            <a href="/TP_BD_1/public/Home" 
-             class="w-100 btn btn-warning btn-lg">Cancelar</a>
-            </div>
-            <div class="col-md-4">
-            <button class="w-100 btn btn-secondary btn-lg">Alterar senha</button>
-            </div>
+            
+            
 
             
           </div>
