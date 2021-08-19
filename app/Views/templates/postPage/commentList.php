@@ -14,7 +14,7 @@
     
     <div class="media text-muted pt-3">
       <span style="float: right;margin-right: 20px;"> <?= $comment['date'] ?></span>  
-      <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1ZqrZxsnrGfz2D5WDDlW1nBrsUjN3zrB6Qpq0oirUE-h0jHIZIAf3m3w_tVynMUZggAA&usqp=CAU" alt="mdo" width="32" height="32" class="rounded-circle">
       <div class="user-data">
         <strong class="d-block text-gray-dark"> <?= $comment['name'] ?>  </strong>
         <p class="d-block text-gray-dark">@<?= $comment['username'] ?></p>
