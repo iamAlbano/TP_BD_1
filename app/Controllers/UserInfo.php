@@ -40,26 +40,28 @@ class UserInfo extends BaseController
 	}
 
 	public function myData(){
+		$userInfo = [
+			'name' => session()->name,
+		  ];
 		echo view('templates/html_header');
         echo view('templates/navbar');
-		echo view('templates/UserInformation');
+		
+		echo view('templates/UserInformation', ['user' => $userInfo]);
 	}
 
-	public function register(){
+	public function viewData(){
 
 		$db = DB::connect();
 
-		$parameter = [
-			'name' => $this->request->getPost('name'), 
-			'lastName' => $this->request->getPost('lastName'),
-			'username' => $this->request->getPost('username'), 
-			'email' => $this->request->getPost('email'), 
-			'password' => password_hash($this->request->getPost('pass'), PASSWORD_BCRYPT)
-		];
+		$query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username` 
+		FROM `tb_user` U,
+    	WHERE U.`id`=`id_user`');
+
+		$userInfo = [
+			'name' => session()->name,
+  			];
 
 		
-
-		$data = $db->query("SELECT * FROM tb_user WHERE email = :email: OR username  = :username:", $parameter);
 
 		foreach ($data->getResult() as $row){
 			
@@ -99,7 +101,7 @@ class UserInfo extends BaseController
 		session()->set([
 			'name' => $name,
 			'username' => $username]);
-			header("Location: ../Home");
+			header("Location: /TP_BD_1/public/Home");
 			die();
 	
 	}

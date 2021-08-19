@@ -5,9 +5,9 @@
     <div class="py-5 text-center">
     </div>
 
-    <div class="row g-5">
+    <div class="row g-6 osition-relative">
       
-      <div class="col-md-7 col-lg-8">
+      <div class="col-md-7 col-lg-8 ">
         <h4 class="mb-3">Meus dados</h4>
         <form class="needs-validation" novalidate="">
           <div class="row g-3">
@@ -31,7 +31,7 @@
               <label for="username" class="form-label">Username</label>
               <div class="input-group has-validation">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                <input type="text" class="form-control" id="username" placeholder="<?=$user['name']?>" required="">
               <div class="invalid-feedback">
                   Your username is required.
                 </div>
@@ -45,57 +45,20 @@
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
-           
 
-            <div class="col-md-5">
-              <label for="country" class="form-label">Country</label>
-              <select class="form-select" id="country" required="">
-                <option value="">Choose...</option>
-                <option>United States</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
+            <hr class="my-4">
+
+            <div class="col-md-4">
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Salvar modificações</button>
             </div>
 
             <div class="col-md-4">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" required="">
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
+            <button class="w-100 btn btn-warning btn-lg" type="submit">Destacar modificações</button>
             </div>
 
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required="">
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
+            <div class="col-md-3"> 
           </div>
-
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
-          </div>
-
-          <hr class="my-4">
-
-          
          
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Salvar modificações</button>
         </form>
       </div>
     </div>
