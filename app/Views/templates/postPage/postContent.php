@@ -5,7 +5,7 @@
 
   <?php if ($post->id_user == session()->get('id')) : ?>
     <div class="media text-muted pt-3" style="padding: 0!important;">
-    <a href="./Post/delete_post?id=<?= $post->id ?>&id_user=<?= $post->id_user?>" class="delete-btn-link"><span class="fas fa-trash-alt delete-post" style="float: right"></span></a>
+    <a href="/TP_BD_1/public//Post/delete_post?id=<?= $post->id ?>&id_user=<?= $post->id_user?>" class="delete-btn-link"><span class="fas fa-trash-alt delete-post" style="float: right"></span></a>
     </div>
   <?php endif; ?>
 

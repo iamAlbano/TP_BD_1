@@ -8,7 +8,7 @@
   <div class="my-3 p-3 bg-white rounded box-shadow new-post-element feed-elements">
     <?php if ($comment['id_user'] == session()->get('id')) : ?>
       <div class="media text-muted pt-3" style="padding: 0!important;">
-      <a href="Post/delete_comment?id=<?= $comment['id'] ?>&id_user=<?= $comment['id_user']?>&id_post=<?= $comment['id_post']?>" class="delete-btn-link"><span class="fas fa-trash-alt delete-post" style="float: right"></span></a>
+      <a href="/TP_BD_1/public/Post/delete_comment?id=<?= $comment['id'] ?>&id_user=<?= $comment['id_user']?>&id_post=<?= $comment['id_post']?>" class="delete-btn-link"><span class="fas fa-trash-alt delete-post" style="float: right"></span></a>
       </div>
     <?php endif; ?>
     

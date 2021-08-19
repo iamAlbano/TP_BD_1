@@ -180,7 +180,7 @@ class Home extends BaseController
   public function logout()
   {
     session()->destroy();
-    header("Location: ../Home");
+    header("Location: /TP_BD_1/public/Home");
     die();
   }
 

@@ -8,7 +8,7 @@
 
     <div class="row new-post-btn-row">
       <div class="col-6">
-        <a href="CreatePost">
+        <a href="/TP_BD_1/public/CreatePost">
           <button class="w-100 btn btn-lg btn-primary">Novo Post</button>
         </a>
       </div>

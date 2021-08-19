@@ -20,7 +20,8 @@ class CreatePost extends BaseController
     echo view('templates/navbar');
     echo view('templates/createPost/createPost', ['form' => view('templates/createPost/newPostForm')]);
     echo view('templates/footer');
-
+    var_dump(session()->get('id'));
+    var_dump(session()->get('name'));
   }
 
   public function createPost(){
@@ -28,7 +29,7 @@ class CreatePost extends BaseController
     $db = DB::connect();
 
     $post = [
-      'id_user' => \session()->get('id'),
+      'id_user' => session()->get('id'),
       'title' => $this->request->getPost('title'),
       'text' => $this->request->getPost('text'),
       'category' => $this->request->getPost('category'),
@@ -46,7 +47,7 @@ class CreatePost extends BaseController
 
     $db->close();
 
-    header("Location: ./Home");
+    header("Location: /TP_BD_1/public/Home");
     die();
 
   }
