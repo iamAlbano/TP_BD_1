@@ -104,6 +104,21 @@ class Post extends BaseController
     }
   }
 
+  public function delete_post($id = NULL, $id_user= NULL){
+    if(isset($_GET['id']) and isset($_GET['id_user'])){
+
+      if ($_GET['id_user'] == \session()->get('id')){  
+        $id = $_GET['id'];
+        $db = DB::connect();
+        $query = $db->query('DELETE FROM `tb_post` WHERE `id`='.$id);
+      }
+    
+    }
+   
+    header("Location: ../Home");
+    die();
+  }
+
   public function get_post_comments($id){
     $db = DB::connect();
     $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, C.*
@@ -164,18 +179,22 @@ class Post extends BaseController
   public function index($id=  NULL)
   {
     
-    if($_GET['id']) {
+    if(isset($_GET['id'])) {
       $id = $_GET['id'];
       $post = $this->get_post($id);
       echo view('templates/html_header');
       $this->navbar();
       echo view('templates/postPage/postPage', [
         'postContent' => view('templates/postPage/postContent', ['post' => $post]),
-        'commentForm' => $this->userComment($post->id),
+        'commentForm' => $this->userComment( $post->id),
         'commentList' => view('templates/postPage/commentList', ['comments' =>$this->get_post_comments($id)])
       ]);
       #\var_dump($this->get_post_comments($id));
       echo view('templates/footer');
+    }
+    else {
+      header("Location: ./Home");
+      die();      
     }
     
   }

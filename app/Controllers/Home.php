@@ -109,6 +109,7 @@ class Home extends BaseController
         
         $post = [
           'id' => $row->id,
+          'id_user' => $row->id_user,
           'name' => $row->first_name . " " . $row->last_name,
           'username' => $row->username,
           'title' => $row->title,

@@ -3,8 +3,8 @@
   <div class="media text-muted pt-3 new-comment-label">
     <img src="https://github.com/mdo.png" alt="mdo" width="42" height="42" class="rounded-circle">
     <div class="user-data" style="margin-left: 3.3rem;">
-      <strong class="d-block text-gray-dark"> Usuario da secao</strong>
-      <p class="d-block text-gray-dark">@usuario</p>
+      <strong class="d-block text-gray-dark"> <?= session()->get('name') ?></strong>
+      <p class="d-block text-gray-dark">@<?= session()->get('username') ?></p>
     </div>
   </div>
 

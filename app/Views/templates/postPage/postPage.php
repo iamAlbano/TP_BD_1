@@ -3,7 +3,6 @@
   <!-- User feed Section  -->
   <div class="row feed-top-elements">
     <div class="col-md-10">
-
       <!-- Render post -->
       <?= $postContent ?>
       <hr />

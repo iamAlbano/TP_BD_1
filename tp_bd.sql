@@ -77,4 +77,21 @@ INSERT INTO `tb_comment` (`id_user`, `id_post`, `text`) VALUES
 
 
 
+/* RESTRIÇÕES EM CASCATA */
+ALTER TABLE `tb_comment` 
+DROP FOREIGN KEY `tb_comment_ibfk_1`; 
 
+ALTER TABLE `tb_comment` 
+ADD CONSTRAINT `tb_comment_ibfk_1` 
+FOREIGN KEY (`id_user`) 
+REFERENCES `tb_user`(`id`) 
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ ALTER TABLE `tb_comment` 
+ DROP FOREIGN KEY `tb_comment_ibfk_2`; 
+ 
+ ALTER TABLE `tb_comment` 
+ ADD CONSTRAINT `tb_comment_ibfk_2` 
+ FOREIGN KEY (`id_post`) 
+ REFERENCES `tb_post`(`id`) 
+ ON DELETE CASCADE ON UPDATE CASCADE;

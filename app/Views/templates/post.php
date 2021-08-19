@@ -1,10 +1,16 @@
  <?php foreach ($posts as $post) : ?>
 
-
+  <p><? echo ($post['id_user']) ?></p>
   <a class="post-title-feed text-muted " href="Post?id=<?= $post['id'] ?>">
    <div class="my-3 p-3 bg-white rounded box-shadow post feed-elements">
-    <div class="media text-muted pt-3">
-      <span style="float: right"> <?= $post['date'] ?></span>  
+      <?php if ($post['id_user'] == session()->get('id')) : ?>
+        <div class="media text-muted pt-3" style="padding: 0!important;">
+          <a href="Post/delete_post?id=<?= $post['id'] ?>&id_user=<?= $post['id_user']?>" class="delete-btn-link"><span class="fas fa-trash-alt delete-post" style="float: right"></span></a>
+        </div>
+      <?php endif; ?>
+    
+      <div class="media text-muted pt-3">
+      <span style="float: right;margin-right: 20px;"> <?= $post['date'] ?></span>  
       <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
        <div class="user-data">
          <strong class="d-block text-gray-dark"> <?= $post['name'] ?></strong>
