@@ -17,6 +17,12 @@ class Home extends BaseController
   }
 
 
+
+  public function filter_feed($filter = NULL) {
+
+
+  }
+
   public function get_post_preview($text) {
 
     $preventText = $text;
@@ -99,6 +105,8 @@ class Home extends BaseController
   public function posts()
   {
     
+
+
     $db = DB::connect();
     $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.*,  COUNT( C.`id_post`) AS comments
     FROM `tb_user` U, `tb_post` P LEFT JOIN `tb_comment` C ON P.`id`=C.`id_post`
@@ -144,6 +152,7 @@ class Home extends BaseController
       'filterFeed' => $data['filterFeed'],
       'postList' => $data['posts']
     ]);
+
     echo view('templates/footer');
    
   }
