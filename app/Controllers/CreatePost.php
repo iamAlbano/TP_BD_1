@@ -20,8 +20,6 @@ class CreatePost extends BaseController
     echo view('templates/navbar');
     echo view('templates/createPost/createPost', ['form' => view('templates/createPost/newPostForm')]);
     echo view('templates/footer');
-    var_dump(session()->get('id'));
-    var_dump(session()->get('name'));
   }
 
   public function createPost(){
