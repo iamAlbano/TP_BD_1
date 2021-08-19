@@ -83,24 +83,26 @@ class UserInfo extends BaseController
 		
 
 		$data = $db->query("SELECT * FROM tb_user WHERE email = :email: OR username  = :username:", $parameter);
-		
-		
-
+	
+	
+		if( !strcmp($parameter['email'], $user[0]->email)){
 		foreach ($data->getResult() as $row){
 			
-			if(strcmp($row->email,$parameter['email']) && !strcmp($row->email, $user[0]->email) ){
+			if(strcmp($row->email, $parameter['email']) && !strcmp($row->username, $user[0]->username)){
 				header("Location: email");
 				die();
 				
-			} 
-			
-			if(strcmp($row->username, $parameter['username']) && !strcmp($row->username, $user[0]->username)){
+			} } }
+
+		if( !strcmp($parameter['username'], $user[0]->username)){
+			foreach ($data->getResult() as $row){
+			if(strcmp($row->username, $parameter['username'])  && !strcmp($row->email, $user[0]->email)){
 				header("Location: username");
 				die();
 			
-			}
-			
-		}
+			} } }
+
+
 
 		$newData = $db->query("UPDATE `tb_user`
 		SET `first_name` =  :first_name:,
