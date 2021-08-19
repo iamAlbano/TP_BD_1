@@ -13,11 +13,10 @@
         <li><a href="/TP_BD_1/public/UserInfo/myData" class="nav-link px-2 link-secondary">Meu perfil</a></li>
         <li><a href="/TP_BD_1/public/Home" class="nav-link px-2 link-dark">Timeline</a></li>
         <li><a href="/TP_BD_1/public/UserInfo/myData" class="nav-link px-2 link-dark">Configurações</a></li>
+        <li style="padding-left: 26em"><a href="/TP_BD_1/public/UserInfo/myData" class="nav-link px-2 link-dark">Olá <b><?=session()->get('name')?></b> !</a></li>
       </ul>
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
+      
 
       <div class="dropdown text-end">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

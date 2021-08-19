@@ -88,7 +88,7 @@ class SignUp extends BaseController
 
     
     
-		$userId = $db->query("SELECT `id` FROM tb_user WHERE email=:email: AND username=:username:", $parameter);
+	$userId = $db->query("SELECT `id` FROM tb_user WHERE email=:email: AND username=:username:", $parameter);
     $userId = $userId->getResult()[0]->id;
     
     $db->close();
