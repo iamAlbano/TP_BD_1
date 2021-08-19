@@ -86,16 +86,20 @@ class SignUp extends BaseController
 			:password:
 		)", $parameter);
 
+		$userId = $db->query("SELECT `id` FROM tb_user WHERE email = :email: AND username  = :username:", $parameter);
+
+
 		$db->close();
 
-		$this->log($parameter['name'], $parameter['username']);
+		$this->log($userId, $parameter['name'], $parameter['username']);
 		
         
     }
 
 
-	public function log($name, $username){
+	public function log($id, $name, $username){
 		session()->set([
+			'id' => $id,
 			'name' => $name,
 			'username' => $username]);
 			header("Location: ../Home");
