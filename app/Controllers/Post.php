@@ -73,8 +73,8 @@ class Post extends BaseController
     }
     
     $preventText = $dom->saveHTML();
-    $preventText = \str_replace("<a ", "<figure ", $preventText);
-    $preventText = \str_replace("</a>", "</figure>",  $preventText);
+    $preventText = \str_replace("<i ", "<figure ", $preventText);
+    $preventText = \str_replace("</i>", "</figure>",  $preventText);
 
     $preventText = \str_replace("<i>","<figcaption>",  $preventText);
     $preventText = \str_replace( "</i>","</figcaption>",  $preventText);

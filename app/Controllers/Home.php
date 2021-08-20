@@ -45,8 +45,8 @@ class Home extends BaseController
 
     $preventText = $text;
     
-    $preventText = \str_replace("<figure ","<a ",  $preventText);
-    $preventText = \str_replace( "</figure>","</a>",  $preventText);
+    $preventText = \str_replace("<figure ","<i ",  $preventText);
+    $preventText = \str_replace( "</figure>","</i>",  $preventText);
 
     $preventText = \str_replace("<figcaption>","<i>",  $preventText);
     $preventText = \str_replace( "</figcaption>","</i>",  $preventText);
