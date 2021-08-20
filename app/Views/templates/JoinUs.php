@@ -7,7 +7,7 @@
 
     <div class="row new-post-btn-row">
       <div class="col-6">
-        <a href="./SignUp">
+        <a href="/TP_BD_1/public/SignUp">
           <button class="w-100 btn btn-lg btn-primary">Cadastrar</button>
         </a>
       </div>

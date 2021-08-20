@@ -29,7 +29,7 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="Home/logout">Logout</a></li>
+          <li><a class="dropdown-item" href="/TP_BD_1/public/Home/logout">Logout</a></li>
         </ul>
       </div>
     </div>
