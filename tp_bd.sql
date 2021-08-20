@@ -43,6 +43,11 @@ CREATE TABLE `tb_comment` (
 );
 
 
+
+--
+-- Extraindo dados da tabela `tb_post`
+--
+
 INSERT INTO `tb_user` (`first_name`, `last_name`, `email`, `username`, `pass`) VALUES
 ('Maria', 'teste', 'teste@teste.com', 'username_teste', '12356'),
 ('João', 'teste2', 'teste2@teste.com', 'username_teste2', '123456'),
@@ -50,10 +55,10 @@ INSERT INTO `tb_user` (`first_name`, `last_name`, `email`, `username`, `pass`) V
 ('Joana', 'teste4', 'teste4@teste.com', 'username_teste4', '123456'),
 ('Mario', 'teste5', 'teste5@teste.com', 'username_teste5', '123456');
 
+
 --
 -- Extraindo dados da tabela `tb_post`
 --
-
 INSERT INTO `tb_post` (`id_user`, `title`, `text`, `category`) VALUES
 (1, 'Playlist pra viagens', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum eget urna eu vehicula. Vestibulum.', 'PlayLists'),
 (2, 'Show raro Pink Floyd 1975', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum eget urna eu vehicula. Vestibulum.', 'Shows'),
@@ -95,3 +100,16 @@ ON DELETE CASCADE ON UPDATE CASCADE;
  FOREIGN KEY (`id_post`) 
  REFERENCES `tb_post`(`id`) 
  ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+
+
+ALTER TABLE `tb_post` 
+DROP FOREIGN KEY `tb_post_ibfk_1`; 
+ALTER TABLE `tb_post` 
+ADD CONSTRAINT `tb_post_ibfk_1` 
+FOREIGN KEY (`id_user`) 
+REFERENCES `tb_user`(`id`) 
+ON DELETE CASCADE 
+ON UPDATE NO ACTION;
