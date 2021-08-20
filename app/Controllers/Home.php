@@ -130,11 +130,16 @@ class Home extends BaseController
 
 
     $db = DB::connect();
-    $query = $db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.*,  COUNT( C.`id_post`) AS comments
+    $query = $db->query('SELECT U.* , P.*,  COUNT( C.`id_post`) AS comments
     FROM `tb_user` U, `tb_post` P LEFT JOIN `tb_comment` C ON P.`id`=C.`id_post`
     WHERE U.`id`=P.`id_user` '.$category.' 
     GROUP BY P.`id`
     ORDER BY '.$filter.' DESC');
+
+
+
+
+
 
     $posts = array();
     if ($query) {

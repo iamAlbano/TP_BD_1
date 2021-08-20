@@ -87,9 +87,17 @@ class Post extends BaseController
 
   public function get_post($id){
     $db = DB::connect();
+
+
+
+    
     $query =$db->query('SELECT U.`id`, U.`first_name`, U.`last_name`, U.`username`, P.* 
       FROM `tb_user` U, `tb_post` P
       WHERE P.`id`=' .$id .' AND U.`id`=P.`id_user`');
+
+
+
+
 
     if ($query->getResultObject('App\Libraries\Post')) {
       #$query =  $query->getResultObject('App\Libraries\Post');
